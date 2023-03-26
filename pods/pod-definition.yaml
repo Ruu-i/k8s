@@ -1,8 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: myapp-pod
+  name: postgress
+  labels:
+    tier: db-tier
 spec:
   containers:
-    - name: nginx
-      image: nginx
+    - name: postgress
+      image: postgress
+      env:
+        - name: POSTGRES_PASSWORD
+          value: mysecretpassword
